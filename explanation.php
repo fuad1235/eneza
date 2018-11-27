@@ -44,21 +44,17 @@ echo '<div class="subbodys">';
 echo '<h5>Quize</h5>';
 echo '</div>';
 
-if ($stmt = $db_conx->prepare("SELECT id, cat_id, question, ans1, ans2, ans3,  posted, u_name FROM quize WHERE u_name = ? AND cat_id = ? "));
-$stmt->bindParam(1,$name);
-$stmt->bindParam(2,$post_id);
+if ($stmt = $db_conx->prepare("SELECT id, cat_id, question, ans1, ans2, ans3,  posted FROM quize WHERE cat_id = ? "));
+$stmt->bindParam(1,$post_id);
 $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
 extract($row);
 
-echo '<div id="product">';
-
 echo '<br />';
 echo '<li>'.$question.'</li>';
-echo '<br />';
-echo '<li>'.$ans1.'</li>';
-echo '<li>'.$ans2.'</li>';
-echo '<li>'.$ans3.'</li>';
+echo '<li>Ans : '.$ans1.'</li>';
+echo '<li>Ans : '.$ans2.'</li>';
+echo '<li>Ans : '.$ans3.'</li>';
 }
 ?>
 
