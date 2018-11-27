@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0); 
+error_reporting(0); 
 require('clean.php');
 
 $DB_HOST = 'localhost';
